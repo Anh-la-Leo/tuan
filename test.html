@@ -17,55 +17,6 @@
         <button id="Tuan-search-button">Search</button>
     </div>
     <div id="Tuan_map"></div>
-
-<!--     
-    <script>
-        // Khởi tạo bản đồ
-        const Tuan_Mymap = L.map('Tuan_map').setView([15.9742, 107.8687], 6);
-
-        // Thêm layer tilemap
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
-            maxZoom: 18
-        }).addTo(Tuan_Mymap);
-
-        // Function để tìm kiếm và cập nhật vị trí trên bản đồ
-        function fn_Tuan_search() {
-            const Tuan_searchInput = document.getElementById('Tuan-search-input').value;
-            const Tuan_apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${Tuan_searchInput}&lang=vi&units=metric&appid=062d92a2646152d39eb7845a608226cb`;
-
-            // Lấy dữ liệu thời tiết từ API
-            fetch(Tuan_apiUrl)
-                .then(function(response) {
-                    return response.json();
-                })
-                .then(function(data) {
-                    // Lấy thông tin thời tiết
-                    const Tuan_Weather = data.weather[0];
-                    const Tuan_temper = Math.round(data.main.temp - 273.15);
-                    const Tuan_descrip = Tuan_Weather.description;
-                    const Tuan_icon = Tuan_Weather.icon;
-                    
-
-                    // Vị trí tọa độ cho thông tin thời tiết
-                    const Tuan_marker = L.marker([data.coord.lat, data.coord.lon])
-                        .addTo(Tuan_Mymap)
-                        
-                        .openPopup();
-
-                    // Cập nhật vị trí trung tâm bản đồ
-                    Tuan_Mymap.setView([data.coord.lat, data.coord.lon], 10);
-                })
-                .catch(function(error) {
-                    console.log('Error:', error);
-                });
-        }
-
-        // Lắng nghe sự kiện click nút tìm kiếm
-        document.getElementById('Tuan-search-button').addEventListener('click', function() {
-            fn_Tuan_search();
-        });
-    </script> -->
 </body>
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 <script type="module" src="main.js"></script>
